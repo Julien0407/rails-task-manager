@@ -1,0 +1,15 @@
+<h2><%= @task.title %></h2>
+<p><%= @task.details %></p>
+<%= form_for(@task) do |f| %>
+
+<p><%= f.check_box :completed %><%= @task.completed ? "This task is completed!" : " This task is not completed" %></p>
+<%=link_to "Delete #{@task.title}",
+  task_path(@task),
+  method: :delete,
+  data: { confirm: "Are you sure?" } %>
+
+<%end%>
+
+<%= link_to "Go Back!", tasks_path(@tasks) %>
+
+
